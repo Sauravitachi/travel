@@ -80,7 +80,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[92vh] lg:min-h-screen flex flex-col justify-between pt-32 pb-14 overflow-hidden bg-[#030705]">
+    <section className="relative min-h-[100dvh] lg:min-h-screen flex flex-col justify-between pt-20 sm:pt-28 lg:pt-32 pb-4 sm:pb-8 lg:pb-12 overflow-hidden bg-[#030705]">
       {/* Background Slides */}
       {HERO_SLIDES.map((slide, index) => (
         <div
@@ -105,64 +105,70 @@ export default function Hero() {
       ))}
 
       {/* Main Content Area */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-1 sm:py-4">
         <div className="max-w-3xl">
-          {/* Location & Tag */}
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-emerald-400 font-mono font-semibold mb-3">
-            <Trees className="w-4 h-4 text-emerald-400" />
-            <span>{HERO_SLIDES[currentSlide].tag}</span>
-            <span className="text-emerald-600">•</span>
-            <span className="text-slate-300">{HERO_SLIDES[currentSlide].location}</span>
+          {/* Location & Tag Badge */}
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2.5 mb-2.5 sm:mb-4">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider">
+              <Trees className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span>{HERO_SLIDES[currentSlide].tag}</span>
+            </span>
+            <span className="text-[10px] sm:text-xs uppercase font-mono tracking-wider text-slate-300/80 flex items-center gap-1.5">
+              <span className="text-emerald-500 hidden sm:inline">•</span>
+              <span className="truncate">{HERO_SLIDES[currentSlide].location}</span>
+            </span>
           </div>
 
           {/* Punchy Editorial Headline */}
-          <h1 className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.06] mb-6">
+          <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-7xl tracking-tight text-white leading-[1.08] mb-3 sm:mb-6">
             Journey Deep Into The{" "}
             <span className="text-emerald-400 text-glow-emerald">Untamed.</span>
           </h1>
 
           {/* Clean Subtitle */}
-          <p className="text-base sm:text-lg text-slate-300/90 leading-relaxed max-w-2xl font-light mb-8">
+          <p className="text-xs sm:text-base lg:text-lg text-slate-300/90 leading-relaxed max-w-2xl font-light mb-4 sm:mb-8 line-clamp-3 sm:line-clamp-none">
             Handcrafted 4x4 overland safaris, deep mountain rainforest trails, and secluded off-grid expeditions.
             Conquer the world’s most pristine wilderness with certified expedition captains and field trauma safety.
           </p>
 
           {/* Minimalist Action Buttons */}
-          <div className="flex flex-wrap items-center gap-4 mb-10">
+          <div className="flex flex-row items-center gap-2 sm:gap-4 mb-4 sm:mb-8">
             <a
               href="#expeditions"
-              className="px-8 py-4 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs uppercase tracking-widest shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 group"
+              className="flex-1 sm:flex-initial px-3.5 sm:px-8 py-2.5 sm:py-4 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 sm:gap-2 group text-center"
             >
-              <span>Explore Expeditions</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <span className="hidden sm:inline">Explore&nbsp;</span>
+              <span>Expeditions</span>
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform shrink-0" />
             </a>
             <a
               href="#standards"
-              className="px-6 py-4 rounded-full glass-panel hover:bg-emerald-950/40 text-slate-200 font-bold text-xs uppercase tracking-wider transition-all border border-emerald-500/20 flex items-center gap-2"
+              className="flex-1 sm:flex-initial px-3 sm:px-6 py-2.5 sm:py-4 rounded-full glass-panel hover:bg-emerald-950/40 text-slate-200 font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all border border-emerald-500/20 flex items-center justify-center gap-1.5 sm:gap-2 text-center"
             >
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Wilderness Standards</span>
+              <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 shrink-0" />
+              <span className="hidden sm:inline">Wilderness&nbsp;</span>
+              <span>Standards</span>
             </a>
           </div>
         </div>
 
         {/* Sleek Minimal Quick Search Pill */}
-        <div className="w-full max-w-3xl mt-4">
+        <div className="w-full max-w-3xl mt-2 sm:mt-4">
           <form
             onSubmit={handleFinderSubmit}
-            className="glass-panel rounded-2xl p-2.5 sm:p-3 border border-emerald-500/20 shadow-2xl bg-[#06120c]/80 backdrop-blur-xl"
+            className="glass-panel rounded-2xl p-2 sm:p-3 border border-emerald-500/20 shadow-2xl bg-[#06120c]/85 backdrop-blur-xl"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
               {/* Destination Filter */}
-              <div className="flex flex-col px-3.5 py-2 rounded-xl bg-black/40 border border-emerald-500/15 focus-within:border-emerald-400 transition-colors">
-                <label className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 mb-0.5 flex items-center gap-1.5">
-                  <MapPin className="w-3 h-3 text-emerald-400" />
-                  <span>Wilderness Region</span>
+              <div className="flex flex-col px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-black/50 border border-emerald-500/15 focus-within:border-emerald-400 transition-colors overflow-hidden">
+                <label className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider text-emerald-400 mb-0.5 flex items-center gap-1 sm:gap-1.5">
+                  <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-emerald-400 shrink-0" />
+                  <span className="truncate">Wilderness Region</span>
                 </label>
                 <select
                   value={dest}
                   onChange={(e) => setDest(e.target.value)}
-                  className="bg-transparent text-sm font-semibold text-white focus:outline-none cursor-pointer"
+                  className="w-full max-w-full bg-transparent text-xs sm:text-sm font-semibold text-white focus:outline-none cursor-pointer truncate"
                 >
                   <option value="All" className="bg-[#030705] text-white">All Circuits & Valleys</option>
                   <option value="Spiti Valley" className="bg-[#030705] text-white">Spiti High Canyon Loop</option>
@@ -173,15 +179,15 @@ export default function Hero() {
               </div>
 
               {/* Expedition Style */}
-              <div className="flex flex-col px-3.5 py-2 rounded-xl bg-black/40 border border-emerald-500/15 focus-within:border-emerald-400 transition-colors">
-                <label className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 mb-0.5 flex items-center gap-1.5">
-                  <Compass className="w-3 h-3 text-emerald-400" />
-                  <span>Expedition Style</span>
+              <div className="flex flex-col px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-black/50 border border-emerald-500/15 focus-within:border-emerald-400 transition-colors overflow-hidden">
+                <label className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider text-emerald-400 mb-0.5 flex items-center gap-1 sm:gap-1.5">
+                  <Compass className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-emerald-400 shrink-0" />
+                  <span className="truncate">Expedition Style</span>
                 </label>
                 <select
                   value={tripType}
                   onChange={(e) => setTripType(e.target.value)}
-                  className="bg-transparent text-sm font-semibold text-white focus:outline-none cursor-pointer"
+                  className="w-full max-w-full bg-transparent text-xs sm:text-sm font-semibold text-white focus:outline-none cursor-pointer truncate"
                 >
                   <option value="All" className="bg-[#030705] text-white">All Expedition Types</option>
                   <option value="4x4 Overlanding" className="bg-[#030705] text-white">4x4 Overland Safari</option>
@@ -194,10 +200,10 @@ export default function Hero() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full h-full min-h-[46px] rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20 active:scale-[0.98]"
+                className="col-span-2 sm:col-span-1 w-full py-2.5 sm:py-0 sm:h-full sm:min-h-[46px] rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20 active:scale-[0.98] cursor-pointer"
               >
                 <span>Find Journey</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </button>
             </div>
           </form>
@@ -205,29 +211,29 @@ export default function Hero() {
       </div>
 
       {/* Clean Bottom Slide Controls */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-6 flex items-center justify-between border-t border-emerald-500/10 pt-4">
-        <div className="text-xs text-slate-400 font-mono flex items-center gap-2">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-2 sm:mt-6 flex items-center justify-between border-t border-emerald-500/10 pt-2.5 sm:pt-4">
+        <div className="text-[11px] sm:text-xs text-slate-400 font-mono flex items-center gap-1.5 sm:gap-2">
           <span className="text-emerald-400 font-bold">0{currentSlide + 1}</span>
           <span className="text-emerald-800">/</span>
           <span>0{HERO_SLIDES.length}</span>
-          <span className="text-slate-500 mx-2">•</span>
-          <span className="text-slate-300 font-sans hidden sm:inline">{HERO_SLIDES[currentSlide].title}</span>
+          <span className="text-slate-500 mx-1 sm:mx-2">•</span>
+          <span className="text-slate-300 font-sans truncate max-w-[140px] sm:max-w-none">{HERO_SLIDES[currentSlide].title}</span>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 pr-14 sm:pr-0">
           <button
             onClick={prevSlide}
-            className="w-9 h-9 rounded-full glass-panel hover:bg-emerald-950/60 flex items-center justify-center text-slate-300 hover:text-white transition-colors border-emerald-500/20"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full glass-panel hover:bg-emerald-950/60 flex items-center justify-center text-slate-300 hover:text-white transition-colors border-emerald-500/20"
             aria-label="Previous Slide"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
           <button
             onClick={nextSlide}
-            className="w-9 h-9 rounded-full glass-panel hover:bg-emerald-950/60 flex items-center justify-center text-slate-300 hover:text-white transition-colors border-emerald-500/20"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full glass-panel hover:bg-emerald-950/60 flex items-center justify-center text-slate-300 hover:text-white transition-colors border-emerald-500/20"
             aria-label="Next Slide"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
         </div>
       </div>

@@ -11,10 +11,10 @@ export default function WhatsAppFloat() {
   );
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
       {/* Expanded Quick Chat Card */}
       {isOpen && (
-        <div className="mb-3 w-80 rounded-2xl border border-emerald-500/25 p-4 shadow-2xl bg-[#07130d] animate-fade-in backdrop-blur-xl">
+        <div className="mb-3 w-[calc(100vw-2rem)] max-w-xs sm:w-80 rounded-2xl border border-emerald-500/25 p-4 shadow-2xl bg-[#07130d] animate-fade-in backdrop-blur-xl">
           <div className="flex items-center justify-between pb-3 border-b border-emerald-500/10 mb-3">
             <div className="flex items-center gap-2.5">
               <div className="relative w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs border border-emerald-500/40">
@@ -53,12 +53,12 @@ export default function WhatsAppFloat() {
       {/* Floating Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group relative flex items-center gap-2.5 px-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xs shadow-2xl shadow-emerald-500/30 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+        className="group relative flex items-center gap-2 px-3 py-2.5 sm:px-4 sm:py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xs shadow-2xl shadow-emerald-500/30 hover:scale-105 active:scale-95 transition-all cursor-pointer"
         aria-label="Chat with Expedition Concierge on WhatsApp"
       >
-        <span className="relative flex h-3 w-3">
+        <span className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-slate-950"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-slate-950"></span>
         </span>
         <span className="hidden sm:inline font-mono tracking-wider uppercase text-[11px] text-slate-950 font-bold">
           Wild Concierge

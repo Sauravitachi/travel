@@ -39,8 +39,8 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#030705]/90 backdrop-blur-xl border-b border-emerald-500/15 py-3.5 shadow-2xl shadow-black/80"
-            : "bg-gradient-to-b from-[#030705]/90 via-[#030705]/50 to-transparent py-5"
+            ? "bg-[#030705]/90 backdrop-blur-xl border-b border-emerald-500/15 py-2.5 sm:py-3.5 shadow-2xl shadow-black/80"
+            : "bg-gradient-to-b from-[#030705]/90 via-[#030705]/50 to-transparent py-3 sm:py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -118,7 +118,25 @@ export default function Navbar() {
             ))}
           </nav>
 
-         
+          <div className="flex flex-col gap-3 mt-auto">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openBookingForExpedition();
+              }}
+              className="w-full py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2"
+            >
+              <span>Book Journey</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+            <button
+              onClick={toggleTheme}
+              className="w-full py-3 rounded-full bg-[#07130d] border border-emerald-500/20 flex items-center justify-center gap-2 text-slate-300 hover:text-emerald-400 text-xs font-semibold uppercase tracking-wider"
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-emerald-400" />}
+              <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+            </button>
+          </div>
         </div>
       )}
     </>
