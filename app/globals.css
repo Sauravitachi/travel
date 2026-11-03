@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-dark: #030705;
+    --bg-surface: #07130d;
+    --bg-card: rgba(8, 20, 14, 0.78);
+    --border-subtle: rgba(16, 185, 129, 0.14);
+    --border-highlight: rgba(52, 211, 153, 0.4);
+    --accent-emerald: #10b981;
+    --accent-jade: #34d399;
+    --accent-firefly: #f59e0b;
+    --jungle-deep: #051a10;
+    --text-primary: #f0fdf4;
+    --text-muted: #8aa496;
+  }
+
+  html.light {
+    --bg-dark: #f2f7f4;
+    --bg-surface: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.92);
+    --border-subtle: rgba(16, 185, 129, 0.18);
+    --border-highlight: rgba(5, 150, 105, 0.5);
+    --accent-emerald: #059669;
+    --accent-jade: #10b981;
+    --accent-firefly: #d97706;
+    --jungle-deep: #e6f4ec;
+    --text-primary: #06190f;
+    --text-muted: #3d5e4b;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Typography */
+.font-display {
+  font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.font-sans {
+  font-family: var(--font-dmsans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-panel-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(52, 211, 153, 0.4);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.65), 0 0 25px -4px rgba(16, 185, 129, 0.2);
+  transform: translateY(-3px);
+}
+
+.glass-card-emerald {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(6, 17, 12, 0.85) 100%);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030705;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0e291b;
+  border-radius: 9999px;
+  border: 2px solid #030705;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Glow Utilities */
+.text-glow-emerald {
+  text-shadow: 0 0 24px rgba(16, 185, 129, 0.45);
+}
+
+.jungle-glow {
+  box-shadow: 0 0 30px -4px rgba(16, 185, 129, 0.25);
+}
+
+/* Atmospheric Dark Jungle Mesh */
+.bg-jungle-mesh {
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.09) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 70%, rgba(6, 78, 59, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 90%, rgba(4, 40, 25, 0.2) 0%, transparent 55%);
+}
+
+/* Light mode overrides */
+html.light body {
+  background-color: #f2f7f4;
+  color: #06190f;
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  box-shadow: 0 10px 30px -5px rgba(0, 30, 15, 0.07);
 }
