@@ -29,6 +29,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Expeditions", href: "#expeditions" },
+    { name: "Private Packages", href: "#private-packages" },
     { name: "Wild Standards", href: "#standards" },
     { name: "Circuit Highlights", href: "#circuit-highlights" },
     { name: "Explorer Stories", href: "#reviews" },

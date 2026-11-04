@@ -71,6 +71,13 @@ export default function Hero() {
 
   const handleFinderSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (tripType === "Private Charter") {
+      const element = document.getElementById("private-packages");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+      return;
+    }
     setFilterDestination(dest);
     setFilterCategory(tripType);
     const element = document.getElementById("expeditions");
@@ -190,6 +197,7 @@ export default function Hero() {
                   className="w-full max-w-full bg-transparent text-xs sm:text-sm font-semibold text-white focus:outline-none cursor-pointer truncate"
                 >
                   <option value="All" className="bg-[#030705] text-white">All Expedition Types</option>
+                  <option value="Private Charter" className="bg-[#030705] text-white">Private Bespoke Charter</option>
                   <option value="4x4 Overlanding" className="bg-[#030705] text-white">4x4 Overland Safari</option>
                   <option value="Moto Expedition" className="bg-[#030705] text-white">Himalayan Moto Tour</option>
                   <option value="Group Departure" className="bg-[#030705] text-white">Curated Group Journey</option>
