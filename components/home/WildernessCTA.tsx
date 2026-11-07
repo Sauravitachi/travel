@@ -38,7 +38,7 @@ export default function WildernessCTA() {
               </button>
 
               <a
-                href="https://wa.me/919876543210?text=Hi%20Wild%20Miles,%20I%20would%20like%20to%20plan%20an%20expedition."
+                href="https://wa.me/918198089565?text=Hi%20Wild%20Miles,%20I%20would%20like%20to%20plan%20an%20expedition."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-4 rounded-full bg-[#07130d] hover:bg-emerald-950/60 text-emerald-300 font-bold text-xs uppercase tracking-wider transition-all border border-emerald-500/25 flex items-center gap-2"

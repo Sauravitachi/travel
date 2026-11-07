@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/home/Hero";
 import ExpeditionGrid from "@/components/home/ExpeditionGrid";
 import PrivatePackages from "@/components/home/PrivatePackages";
+import UpcomingTrails from "@/components/home/UpcomingTrails";
 import SafetyBanner from "@/components/home/SafetyBanner";
 import ItineraryShowcase from "@/components/home/ItineraryShowcase";
 import ReviewMasonry from "@/components/home/ReviewMasonry";
@@ -20,9 +21,10 @@ export default function Home() {
         <Navbar />
         <Hero />
         <ExpeditionGrid />
-        <PrivatePackages />
-        <SafetyBanner />
         <ItineraryShowcase />
+        <PrivatePackages />
+        <UpcomingTrails />
+        <SafetyBanner />
         <ReviewMasonry />
         <WildernessCTA />
         <Footer />

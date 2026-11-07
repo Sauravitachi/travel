@@ -25,7 +25,7 @@ export default function HimalayanPrepGuide() {
         `INTO THE WILD MILES - OFFICIAL HIMALAYAN EXPEDITION PREPARATION GUIDE
 ====================================================================
 Expedition Desk: Shimla & Kaza Base Camps
-Helpline: +91 98765 43210
+Helpline: +91 81980 89565
 
 1. ALTITUDE ACCLIMATIZATION PROTOCOL:
 - High Altitude Rule: "Climb High, Sleep Low".
@@ -47,7 +47,7 @@ Helpline: +91 98765 43210
 
 4. 24/7 EXPEDITION DESK EMERGENCY:
 Emergency Satellite InReach: ITWM-CONVOY-01
-Base Coordinator Tenzin: +91 98765 43210
+Base Coordinator: +91 81980 89565
 ====================================================================`,
       ],
       { type: "text/plain" }

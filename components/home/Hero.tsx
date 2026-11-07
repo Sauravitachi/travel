@@ -115,27 +115,28 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-1 sm:py-4">
         <div className="max-w-3xl">
           {/* Location & Tag Badge */}
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2.5 mb-2.5 sm:mb-4">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider">
               <Trees className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-              <span>{HERO_SLIDES[currentSlide].tag}</span>
+              <span>Flagship: Spiti Valley (8N / 9D)</span>
             </span>
-            <span className="text-[10px] sm:text-xs uppercase font-mono tracking-wider text-slate-300/80 flex items-center gap-1.5">
-              <span className="text-emerald-500 hidden sm:inline">•</span>
-              <span className="truncate">{HERO_SLIDES[currentSlide].location}</span>
+            <span className="px-2.5 py-1 rounded-full bg-black/60 text-emerald-300 text-[10px] sm:text-xs font-mono border border-emerald-500/20">
+              Pickup: Delhi • Chandigarh • Shimla
+            </span>
+            <span className="px-2.5 py-1 rounded-full bg-emerald-500 text-slate-950 text-[10px] sm:text-xs font-mono font-black uppercase">
+              ₹22,999/- <span className="line-through font-normal text-slate-800">₹25,999</span>
             </span>
           </div>
 
           {/* Punchy Editorial Headline */}
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-7xl tracking-tight text-white leading-[1.08] mb-3 sm:mb-6">
-            Journey Deep Into The{" "}
-            <span className="text-emerald-400 text-glow-emerald">Untamed.</span>
+            Spiti Valley & Untamed{" "}
+            <span className="text-emerald-400 text-glow-emerald">Overlands.</span>
           </h1>
 
           {/* Clean Subtitle */}
           <p className="text-xs sm:text-base lg:text-lg text-slate-300/90 leading-relaxed max-w-2xl font-light mb-4 sm:mb-8 line-clamp-3 sm:line-clamp-none">
-            Handcrafted 4x4 overland safaris, deep mountain rainforest trails, and secluded off-grid expeditions.
-            Conquer the world’s most pristine wilderness with certified expedition captains and field trauma safety.
+            8 Nights / 9 Days expedition across Narkanda, Sangla, Kalpa, Tabo, Kaza, Langza & Chicham. Handpicked authentic homestays, live camping in forest, zip lining, all meals, and dedicated vehicle with expert local Himalayan driver. Max 25 explorers.
           </p>
 
           {/* Minimalist Action Buttons */}

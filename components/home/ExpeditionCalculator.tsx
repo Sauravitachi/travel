@@ -78,7 +78,7 @@ export default function ExpeditionCalculator() {
     const text = encodeURIComponent(
       `Hello Into The Wild Miles team! 🏔️\n\nI just configured a custom Himalayan Expedition quote on your website:\n- Circuit: ${selectedExpedition.title}\n- Duration: ${selectedExpedition.duration}\n- Travelers: ${travelers} Explorer(s)\n- Vehicle: ${selectedVeh}\n- Stays: ${stayName}\n- Estimated Investment: ₹${calculatedTotals.grandTotal.toLocaleString("en-IN")} (Token: ₹${calculatedTotals.tokenDeposit.toLocaleString("en-IN")})\n\nPlease share the upcoming batch dates and confirm seat availability!`
     );
-    window.open(`https://wa.me/919876543210?text=${text}`, "_blank");
+    window.open(`https://wa.me/918198089565?text=${text}`, "_blank");
   };
 
   return (

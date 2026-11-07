@@ -7,7 +7,7 @@ export default function WhatsAppFloat() {
   const [isOpen, setIsOpen] = useState(false);
 
   const defaultMessage = encodeURIComponent(
-    "Hello Wild Miles! 🌿 I am inquiring about upcoming 2026 jungle & overland expeditions. Can you share route availability and private convoy options?"
+    "Hello Wild Miles! 🌿 I am inquiring about the Spiti Valley 8N/9D expedition (Delhi/Chandigarh/Shimla pickup), Private Charter options, or Upcoming 2027 Trails. Can you share details?"
   );
 
   return (
@@ -39,7 +39,7 @@ export default function WhatsAppFloat() {
           </p>
 
           <a
-            href={`https://wa.me/919876543210?text=${defaultMessage}`}
+            href={`https://wa.me/918198089565?text=${defaultMessage}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 transition-all"

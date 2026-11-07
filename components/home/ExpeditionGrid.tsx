@@ -184,15 +184,28 @@ export default function ExpeditionGrid() {
                     </div>
                     <div className="flex items-center gap-2">
                       <Users className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>Max 12 Explorers</span>
+                      <span>{exp.maxExplorers ? `Max ${exp.maxExplorers} Explorers` : "Max 12 Explorers"}</span>
                     </div>
+                    {exp.pickup && (
+                      <div className="col-span-2 flex items-center gap-2 text-emerald-300 font-mono text-[11px] pt-1">
+                        <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                        <span className="truncate">Pickup: {exp.pickup}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Price & Action */}
                 <div className="pt-2 flex items-center justify-between gap-3">
                   <div>
-                    <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-medium">Starting from</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">After Discount</span>
+                      {exp.originalPriceINR > exp.priceINR && (
+                        <span className="text-[11px] line-through text-slate-500 font-mono">
+                          ₹{exp.originalPriceINR.toLocaleString("en-IN")}
+                        </span>
+                      )}
+                    </div>
                     <span className="font-display font-extrabold text-2xl text-white">
                       {formatPrice(exp.priceINR)}
                     </span>

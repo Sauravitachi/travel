@@ -34,8 +34,9 @@ export default function BookingModal() {
 
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [selectedBatch, setSelectedBatch] = useState<string>("");
+  const [selectedPickup, setSelectedPickup] = useState<string>("Delhi");
   const [travelersCount, setTravelersCount] = useState<number>(2);
-  const [vehiclePreference, setVehiclePreference] = useState<string>("4x4 Convoy Seat");
+  const [vehiclePreference, setVehiclePreference] = useState<string>("Dedicated Vehicle with Expert Local Driver");
 
   // Contact details
   const [fullName, setFullName] = useState("");
@@ -110,20 +111,33 @@ export default function BookingModal() {
     const text = `WILD MILES - EXPEDITION SEAT CONFIRMATION
 ======================================================
 Booking Reference: ${bookingReferenceId}
-Expedition: ${expedition.title}
+Expedition: ${expedition.title} (Spiti Valley)
 Duration: ${expedition.duration}
+Pickup Location: ${selectedPickup} (Delhi / Chandigarh / Shimla)
+Max Capacity: 25 Explorers per batch
 Departure Batch: ${selectedBatch}
-Travelers: ${travelersCount} Explorer(s)
+Explorers: ${travelersCount} Person(s)
 Mode: ${vehiclePreference}
 Lead Explorer: ${fullName}
 WhatsApp: ${whatsappNumber}
 Email: ${emailAddress}
-Deposit Status: CONFIRMED (₹${totalPayable.toLocaleString("en-IN")})
+Package Cost: ₹${expedition.originalPriceINR.toLocaleString("en-IN")}
+Discounted Price: ₹${expedition.priceINR.toLocaleString("en-IN")} (Save ₹${(expedition.originalPriceINR - expedition.priceINR).toLocaleString("en-IN")})
+Deposit Paid: CONFIRMED (₹${totalPayable.toLocaleString("en-IN")})
+
+Inclusions Covered:
+1. All 8 nights stays (handpicked authentic home stays & camping tents)
+2. Dedicated vehicle with expert local Himalayan driver
+3. Inclusive of breakfast, lunch & dinner
+4. Medical grade throughout the expedition
+5. Wilderness leader and tour guide
+6. Exciting activities including live camping in forest, zip lining, hiking and many more
+7. Fun activities like music night, games etc.
 
 Wilderness Operations Base:
-Shimla & Kaza Base Camps
-Phone: +91 98765 43210
-Expedition Director: Tenzin Dorje
+Delhi • Chandigarh • Shimla • Kaza (Spiti Valley)
+Phone: +91 81980 89565
+Email: Intothewildmiless@gmail.com
 ======================================================`;
 
     const blob = new Blob([text], { type: "text/plain" });
@@ -235,7 +249,7 @@ Expedition Director: Tenzin Dorje
                 </button>
 
                 <a
-                  href={`https://wa.me/919876543210?text=Hi%20Wild%20Miles,%20I%20just%20reserved%20booking%20${bookingReferenceId}%20for%20${encodeURIComponent(
+                  href={`https://wa.me/918198089565?text=Hi%20Wild%20Miles,%20I%20just%20reserved%20booking%20${bookingReferenceId}%20for%20${encodeURIComponent(
                     expedition.title
                   )}.%20Please%20connect%20me%20with%20our%20lead%20expedition%20director!`}
                   target="_blank"
@@ -250,10 +264,62 @@ Expedition Director: Tenzin Dorje
           ) : step === 1 ? (
             /* STEP 1: Batch & Traveler Count */
             <form onSubmit={handleStep1Next} className="space-y-6">
+              {/* Pricing & Max Explorers Banner */}
+              <div className="p-4 rounded-2xl bg-black/50 border border-emerald-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl font-black font-display text-white">
+                      ₹{expedition.priceINR.toLocaleString("en-IN")}/-
+                    </span>
+                    <span className="text-xs line-through text-slate-500 font-mono">
+                      ₹{expedition.originalPriceINR.toLocaleString("en-IN")}/-
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-mono text-[10px] font-bold">
+                      After Discount
+                    </span>
+                  </div>
+                  <div className="text-[11px] text-slate-400 mt-0.5">
+                    Duration: <span className="text-white font-medium">{expedition.duration}</span> • Max <span className="text-emerald-300 font-bold">25 Explorers</span>
+                  </div>
+                </div>
+
+                <div className="text-right sm:text-right text-[11px] font-mono text-emerald-400">
+                  <span className="block font-bold">Route with pictures:</span>
+                  <span className="text-[10px] text-slate-300 truncate max-w-xs block">
+                    Narkanda - Sangla - Kalpa - Tabo - Kaza - Langza - Chicham - returning back
+                  </span>
+                </div>
+              </div>
+
+              {/* Pickup Location Selection */}
+              <div>
+                <label className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold block mb-2 flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  <span>Pickup Location (Delhi / Chandigarh / Shimla) *</span>
+                </label>
+                <div className="grid grid-cols-3 gap-2.5">
+                  {["Delhi", "Chandigarh", "Shimla"].map((loc) => (
+                    <button
+                      key={loc}
+                      type="button"
+                      onClick={() => setSelectedPickup(loc)}
+                      className={`py-2.5 px-3 rounded-xl border text-xs font-bold font-mono transition-all cursor-pointer text-center ${
+                        selectedPickup === loc
+                          ? "bg-emerald-500 text-slate-950 border-emerald-500 shadow-md"
+                          : "bg-black/40 text-slate-300 border-emerald-500/15 hover:bg-emerald-950/40"
+                      }`}
+                    >
+                      {loc}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Departure Batches */}
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold block mb-3 flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  <span>Select Departure Batch (2026 Season)</span>
+                  <span>Departure Batch (2026 - 2027)</span>
                 </label>
                 <div className="space-y-2">
                   {expedition.batches.map((batch) => (
@@ -291,7 +357,7 @@ Expedition Director: Tenzin Dorje
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold block mb-2 flex items-center gap-2">
                   <Users className="w-4 h-4" />
-                  <span>Number of Explorers</span>
+                  <span>Number of Explorers (Max 25 per batch)</span>
                 </label>
                 <div className="flex items-center gap-3">
                   {[1, 2, 3, 4, 6].map((num) => (
@@ -347,7 +413,7 @@ Expedition Director: Tenzin Dorje
                     required
                     value={whatsappNumber}
                     onChange={(e) => setWhatsappNumber(e.target.value)}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 81980 89565"
                     className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-emerald-500/20 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400"
                   />
                 </div>

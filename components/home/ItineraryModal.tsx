@@ -54,7 +54,17 @@ export default function ItineraryModal() {
                 <span className="px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-emerald-300 border border-emerald-500/20 text-[10px] font-mono font-bold">
                   {exp.duration}
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-emerald-400 border border-emerald-500/20 text-[10px] font-mono font-bold">
+                {exp.pickup && (
+                  <span className="px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-emerald-300 border border-emerald-500/20 text-[10px] font-mono font-bold">
+                    Pickup: {exp.pickup}
+                  </span>
+                )}
+                {exp.maxExplorers && (
+                  <span className="px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-emerald-400 border border-emerald-500/20 text-[10px] font-mono font-bold">
+                    Max {exp.maxExplorers} Explorers
+                  </span>
+                )}
+                <span className="px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-slate-300 border border-emerald-500/20 text-[10px] font-mono">
                   Peak: {exp.altitudePeak}
                 </span>
               </div>
@@ -65,7 +75,14 @@ export default function ItineraryModal() {
 
             <div className="flex items-center gap-3">
               <div className="text-right hidden sm:block">
-                <span className="text-[10px] text-slate-400 uppercase font-mono block">Starting From</span>
+                <div className="flex items-center gap-1.5 justify-end">
+                  <span className="text-[10px] text-slate-400 uppercase font-mono">After Discount</span>
+                  {exp.originalPriceINR > exp.priceINR && (
+                    <span className="text-[10px] text-slate-500 line-through font-mono">
+                      ₹{exp.originalPriceINR.toLocaleString("en-IN")}
+                    </span>
+                  )}
+                </div>
                 <span className="text-xl font-black font-display text-white">{formatPrice(exp.priceINR)}</span>
               </div>
               <button
